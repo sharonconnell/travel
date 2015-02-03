@@ -1,0 +1,21 @@
+<style>
+    body {
+        background: <%= @color %>;
+    }
+
+</style>
+<h1>About Me!</h1>
+<p>Lots of interesting stuff about me...</p>
+<p> My favorite color is <%= @color %> </p>
+<% if @size > 12 %>
+    <p> My shoe size is <%= @size.to_i %>. I have HUGE feet. </p>
+<% else %>
+    <p> My shoe size is <%= @size.to_i %></p>
+
+<% end %>
+
+<%= link_to "Home", '/?welcome=You came from the About page!'%>
+
+<p><a href=contact.html>Contact</a></p>
+
+Your favorite color: <%= @color%>

@@ -1,0 +1,117 @@
+
+<style>
+body { 
+    background: <%=@background%>;
+    margin: <%=@margin%>;
+}
+.size_position {
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    box-shadow: 10px 10px 5px #999999;
+}
+
+html, body {
+  padding: 0;
+}
+.box1 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, .2);
+    background-color: olive;
+}
+.box2 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, .2);
+    background-color: tan;
+}
+
+.box3 {
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, .2);
+    background-color: gray;
+}
+
+</style>
+<body>
+
+<h1>Your favorite color: <%= @color %></h1>
+    <h1><%= @welcome %></h1>
+<h1>Sharon's Travel Site</h1>
+<p>Thus and so...</p>
+<br/>
+
+<table class="table">
+  <tr>
+    <% @united_states.each do |key,value| %>
+      <th><%= key.titleize %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <% @united_states.each do |key,value| %>      
+      <% if value.kind_of?(Array) %>
+          <td><%= value.join(", ") %></td>
+      <% else %>
+         <td><%= value %></td>
+      <% end %> 
+    <% end %>
+  </tr>
+</table>
+</br>
+Homeland: <%= @homeland %>
+
+<ul>
+<% @countries.each do |country| %> 
+    <li><%= country %></li>
+<% end %>
+</ul>
+
+<p>
+<ul>
+<% @family_tree.each do |name, relationship| %>
+    <li><%= name %> <%= relationship %></li>
+
+<%end%>
+</ul>
+
+<p> I want to say...<%= @message %>! </p>
+
+<p><a href=about.html>About</a></p>
+<p><a href=contact.html>Contact</a></p>
+<% @photos.shuffle.each do |photos| %>
+    <%= image_tag photos, class: 'size_position'%>
+<% end %>
+<ul>
+
+<div class="box1">
+         <%= link_to 'Select Olive', '/?background=olive'%>
+    </div> 
+ 
+<div class="box2">
+        <%= link_to 'Select Tan', '/?background=tan'%>
+    </div>
+
+<div class="box3">
+         <%= link_to 'Select Gray', '/?background=gray'%>
+    </div>
+
+
+
+</body>
+
