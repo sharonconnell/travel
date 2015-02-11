@@ -33,6 +33,7 @@ class DestinationsController < ApplicationController
 
   # GET /destinations/1/edit
   def edit
+   
   end
 
   # POST /destinations
