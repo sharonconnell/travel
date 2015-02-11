@@ -1,15 +1,24 @@
 class DestinationsController < ApplicationController
   before_action :set_destination, only: [:show, :edit, :update, :destroy]
 
-def russia
-  @custom_destination = params[:country]
-  @destinations = Destination.where(country: @custom_destination).all
-  
-end
-  # GET /destinations
-  # GET /destinations.json
-  def index
-    @destinations = Destination.all
+
+  # GET /destinations/1
+  # GET /destinations/1.json
+      def index
+        if params[:country] == nil
+         @destinations = Destination.all 
+        else 
+          @destinations = Destination.where(country: params[:country].titleize)
+        end
+
+         @destinations = Destination.all
+    
+    @my_countries = []
+    @destinations.each do |destination|
+      @my_countries.push(destination.country)
+ end
+
+    @my_countries = @my_countries.uniq 
   end
 
   # GET /destinations/1
@@ -19,7 +28,7 @@ end
 
   # GET /destinations/new
   def new
-    @destination = Destination.new
+    @destinations = Destination.new
   end
 
   # GET /destinations/1/edit

@@ -51,9 +51,9 @@ html, body {
 </style>
 <body>
 
-<h1>Your favorite color: <%= @color %></h1>
+
     <h1><%= @welcome %></h1>
-<h1>Sharon's Travel Site</h1>
+<h3>Your favorite color: <%= @color %></h3>
 <p>Thus and so...</p>
 <br/>
 
@@ -76,27 +76,24 @@ html, body {
 </br>
 Homeland: <%= @homeland %>
 
-<ul>
-<% @countries.each do |country| %> 
-    <li><%= country %></li>
-<% end %>
-</ul>
+
 
 <p>
 <ul>
-<% @family_tree.each do |name, relationship| %>
-    <li><%= name %> <%= relationship %></li>
+<% @family.each do |name, relationship| %>
+    <li><%= name %>, <%= relationship %></li>
 
 <%end%>
 </ul>
 
 <p> I want to say...<%= @message %>! </p>
 
-<p><a href=about.html>About</a></p>
-<p><a href=contact.html>Contact</a></p>
+
+
 <% @photos.shuffle.each do |photos| %>
     <%= image_tag photos, class: 'size_position'%>
 <% end %>
+<hr/>
 <ul>
 
 <div class="box1">

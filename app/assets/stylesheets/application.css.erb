@@ -14,5 +14,10 @@
  *= require_self
  */
 body {
-    background: ("image_1.JPG") no-repeat;
+  background: url(<%= asset_path "image_1.JPG" %>) no-repeat;
+  background-size: cover;
+}
+
+.container {
+  background: rgba(255,255,255,0.8);
 }
